@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F4A89F27-4818-4E5C-A9C7-6F5E15279285}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Contracts\ICajaRepository.cs" />
+    <Compile Include="Contracts\IEmpresaRepository.cs" />
+    <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\IIniciosDeSesionRepository.cs" />
+    <Compile Include="Contracts\IMesasRepository.cs" />
+    <Compile Include="Contracts\IModulosRepository.cs" />
+    <Compile Include="Contracts\IMovimientoDeCajaRepository.cs" />
+    <Compile Include="Contracts\IPermisosRepository.cs" />
+    <Compile Include="Contracts\ISalonesRepository.cs" />
+    <Compile Include="Contracts\IUsuariosRepository.cs" />
+    <Compile Include="DTO\MostrarMesasPorSalonDTO.cs" />
+    <Compile Include="DTO\MostrarPermisosDTO.cs" />
+    <Compile Include="DTO\MostrarUsuariosDTO.cs" />
+    <Compile Include="Entities\Caja.cs" />
+    <Compile Include="Entities\Empresa.cs" />
+    <Compile Include="Entities\IniciosDeSesion.cs" />
+    <Compile Include="Entities\Mesas.cs" />
+    <Compile Include="Entities\Modulos.cs" />
+    <Compile Include="Entities\MovimientoDeCaja.cs" />
+    <Compile Include="Entities\Permisos.cs" />
+    <Compile Include="Entities\Salones.cs" />
+    <Compile Include="Entities\Usuarios.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CajaRepository.cs" />
+    <Compile Include="Repositories\EmpresaRepository.cs" />
+    <Compile Include="Repositories\IniciosDeSesionRepository.cs" />
+    <Compile Include="Repositories\MesasRepository.cs" />
+    <Compile Include="Repositories\ModulosRepository.cs" />
+    <Compile Include="Repositories\MovimientoDeCajaRepository.cs" />
+    <Compile Include="Repositories\PermisosRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RepositoryMaster.cs" />
+    <Compile Include="Repositories\SalonesRepository.cs" />
+    <Compile Include="Repositories\UsuariosRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{7e0518f1-f48c-4b30-856c-99c7ce1ad682}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
