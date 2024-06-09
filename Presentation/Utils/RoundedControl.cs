@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Presentation.Utils
 {
-    class RoundedControl
+    public class RoundedControl
     {
         /// <summary>
         /// Esta clase estática se encarga de hacer controles con esquinas redondeados.

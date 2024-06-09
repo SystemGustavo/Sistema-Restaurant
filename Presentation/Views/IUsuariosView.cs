@@ -36,7 +36,7 @@ namespace Presentation.Views
         event EventHandler EventSelectedIndexChanged;
         event EventHandler EventClickImagen;
         event EventHandler EventOnTextChanged;
-
+        event KeyPressEventHandler EventKeyPressContraseña;
         void SetUsuariosListBindingSource(BindingSource usuariosList);
         void SetModulosListBindingSource(BindingSource modulosList);
     }

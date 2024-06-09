@@ -146,7 +146,6 @@ namespace Presentation
             }
             else
                 instance.Show();
-
             return instance;
         }
         

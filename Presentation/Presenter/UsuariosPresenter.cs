@@ -26,6 +26,7 @@ namespace Presentation.Presenter
         private IEnumerable GetAllUsuarios;
         private IEnumerable GetAllModulos;
         private TransactionAction transaction { get; set; }
+        private ColorsAction color { get; set; }
         private int IdUsuario { get; set; }
         private string LastRecord { get; set; }
         private Image defaultPhoto = Resource1.userProfile;
@@ -57,27 +58,42 @@ namespace Presentation.Presenter
             IUsuariosView.EventClickImagen += pbImagen_Click;
             IUsuariosView.EventSelectedIndexChanged += cbxRol_OnSelectedIndexChanged;
             IUsuariosView.EventOnTextChanged += txtBuscarUsuario_OnTextChanged;
+            IUsuariosView.EventKeyPressContraseña += txtContraseña_KeyPress;
 
             ListarUsuarios();
             ListarModulos();
         }
-
+        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
         private void txtBuscarUsuario_OnTextChanged(object sender, EventArgs e)
         {
             GetAllUsuarios = UsuariosModel.BuscarUsuarios(IUsuariosView.buscarUsuario);
             usuariosBindingSource.DataSource = GetAllUsuarios;
         }
-
         private void pbImagen_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFile = new OpenFileDialog();
-            openFile.Filter = "Images(.jpg,.png)|*.png;*.jpg";
-            if (openFile.ShowDialog() == DialogResult.OK)
+            using (OpenFileDialog openFile = new OpenFileDialog())
             {
-                IUsuariosView.Imagen.Image = new Bitmap(openFile.FileName);
+                openFile.Filter = "Images(.jpg,.png)|*.png;*.jpg";
+                if (openFile.ShowDialog() == DialogResult.OK)
+                {
+                    IUsuariosView.Imagen.Image = new Bitmap(openFile.FileName);
+                }
             }
         }
-
         private void btnCancelar(object sender, EventArgs e)
         {
             IUsuariosView.TabControl.TabPages.Remove(IUsuariosView.PestañaDetalleDeUsuarios);
@@ -85,12 +101,10 @@ namespace Presentation.Presenter
             IUsuariosView.PestañaDetalleDeUsuarios.Text = "ListaDeUsuarios";
             LimpiarControles();
         }
-
         private void cbxRol_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             ValidarRoles();
         }
-
         private UsuariosModel FillUsuariosModel()
         {
             UsuariosModel.Nombre = IUsuariosView.Nombre;
@@ -104,7 +118,6 @@ namespace Presentation.Presenter
             UsuariosModel.Rol = IUsuariosView.Rol;
             return UsuariosModel;
         }
-
         private void btnAccion(object sender, EventArgs e)
         {
             try {
@@ -143,7 +156,6 @@ namespace Presentation.Presenter
                 MessageBox.Show(message, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void InsertarPermisos()
         {
             List<PermisosModel> objListPermisos = new List<PermisosModel>();
@@ -162,7 +174,6 @@ namespace Presentation.Presenter
             }
             PermisosModel.AddRange(objListPermisos);
         }
-
         private void ValidarRoles()
         {
             int idCajaSerial = CajasModel.MostrarIdCajaSerial(Bases.Obtener_serialPC());
@@ -208,25 +219,20 @@ namespace Presentation.Presenter
                 }
             }
         }
-
-
         private void ListarModulos()
         {
             GetAllModulos = ModulosModel.GetAllModulos();
             modulosBindingSource.DataSource = GetAllModulos;
         }
-
         private void ListarUsuarios()
         {
             GetAllUsuarios= UsuariosModel.GetAllUsuarios();
             usuariosBindingSource.DataSource = GetAllUsuarios;
         }
-
         private void btnVerDetalles(object sender, EventArgs e)
         {
             throw new NotImplementedException();
         }
-
         private void DeshabilitarControles()
         {
             foreach (Control item in IUsuariosView.PestañaDetalleDeUsuarios.Controls)
@@ -237,7 +243,6 @@ namespace Presentation.Presenter
                 }
             }
         }
-
         private void HabilitarControles()
         {
             foreach (Control item in IUsuariosView.PestañaDetalleDeUsuarios.Controls)
@@ -248,7 +253,6 @@ namespace Presentation.Presenter
                 }
             }
         }
-
         private void LimpiarControles()
         {
             IUsuariosView.Nombre = String.Empty;
@@ -258,43 +262,39 @@ namespace Presentation.Presenter
             IUsuariosView.Rol = String.Empty;
             IUsuariosView.Estado = String.Empty;
         }
-
         private void btnAgregarNuevo(object sender, EventArgs e)
         {
             transaction = TransactionAction.Add;
             string Accion = "Agregar Nuevo Usuario";
-            string Color = "Verde";
+            color = ColorsAction.Verde;
             CambiarDePestaña(Accion);
-            CambiarImagenBotonAccion(Color);
+            CambiarImagenBotonAccion();
             HabilitarControles();
             LimpiarControles();
         }
-
         private void btnEditar(object sender, EventArgs e)
         {
             transaction = TransactionAction.Edit;
             string Accion = "Editar Usuario";
-            string Color = "Azul";
+            color = ColorsAction.Azul;
             CambiarDePestaña(Accion);
-            CambiarImagenBotonAccion(Color);
+            CambiarImagenBotonAccion();
             PasarDatos_DatagridView_A_Controles();
             ValidarRoles();
             HabilitarControles();
 
         }
-
         private void btnEliminar(object sender, EventArgs e)
         {
             transaction = TransactionAction.Remove;
             string Accion = "Eliminar Usuario";
-            string Color = "Rojo";
+            color = ColorsAction.Rojo;
             CambiarDePestaña(Accion);
-            CambiarImagenBotonAccion(Color);
+            CambiarImagenBotonAccion();
             PasarDatos_DatagridView_A_Controles();
             ValidarRoles();
             DeshabilitarControles();
         }
-
         private void PasarDatos_DatagridView_A_Controles()
         {
             if (IUsuariosView.DGVUsuarios.SelectedCells.Count > 1)
@@ -308,30 +308,27 @@ namespace Presentation.Presenter
                 IUsuariosView.Estado= IUsuariosView.DGVUsuarios.SelectedCells[6].Value.ToString();
              }
         }
-
-
         private void CambiarDePestaña(string accion)
         {
             IUsuariosView.TabControl.TabPages.Remove(IUsuariosView.PestañaListaDeUsuarios);
             IUsuariosView.TabControl.TabPages.Add(IUsuariosView.PestañaDetalleDeUsuarios);
             IUsuariosView.PestañaDetalleDeUsuarios.Text = accion;
         }
-
-        private void CambiarImagenBotonAccion(string Color)
+        private void CambiarImagenBotonAccion()
         {
-            switch (Color)
+            switch (color)
             {
-                case "Azul":
+                case ColorsAction.Verde:
+                    IUsuariosView.AccionBoton.BackgroundImage = Resource1.verde;
+                    IUsuariosView.AccionBoton.Text = "Guardar";
+                    break;
+                case ColorsAction.Azul:
                     IUsuariosView.AccionBoton.BackgroundImage = Resource1.azul;
                     IUsuariosView.AccionBoton.Text = "Editar";
                     break;
-               case "Rojo":
+               case ColorsAction.Rojo:
                     IUsuariosView.AccionBoton.BackgroundImage = Resource1.Rojo;
                     IUsuariosView.AccionBoton.Text = "Eliminar";
-                    break;
-                case "Verde":
-                    IUsuariosView.AccionBoton.BackgroundImage = Resource1.verde;
-                    IUsuariosView.AccionBoton.Text = "Guardar";
                     break;
             }
         }

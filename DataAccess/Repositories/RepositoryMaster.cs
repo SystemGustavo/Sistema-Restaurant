@@ -10,7 +10,6 @@ namespace DataAccess.Repositories
         protected List<SqlParameter> parametros;
         protected SqlParameter parametro;
 
-
         protected DataTable ExecuteReader(string ProcAlmacenado)
         {
             using (var conexion = ObtenerConexion())
@@ -165,7 +164,6 @@ namespace DataAccess.Repositories
                 }
             }
         }
-
 
         public int TransactionParameterExecuteScalar(string procAlmacenado)
         {

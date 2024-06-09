@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,8 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bases\Bases.cs" />
+    <Compile Include="Bases\ColorsAction.cs" />
     <Compile Include="Cache\CajaCache.cs" />
     <Compile Include="Cache\Position.cs" />
+    <Compile Include="Cache\PuntoDeVentaCache.cs" />
     <Compile Include="Cache\UsuarioCache.cs" />
     <Compile Include="Bases\ExceptionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

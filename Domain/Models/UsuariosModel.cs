@@ -4,6 +4,7 @@ using DataAccess.DTO;
 using DataAccess.Entities;
 using DataAccess.Repositories;
 using Domain.DTOs;
+using Domain.Mapeador;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Models
 {
-    public class UsuariosModel
+    public class UsuariosModel : MapUsuariosModel
     {
         [DisplayName("Id")]
         public int IdUsuario { get; set; }
@@ -36,7 +37,7 @@ namespace Domain.Models
         [DisplayName("Estado")]
         public string Estado { get; set; }
 
-        private List<MostrarUsuariosDTOs> ListMostrarUsuariosDTOs { get; set; }
+        //private List<MostrarUsuariosDTOs> ListMostrarUsuariosDTOs { get; set; }
         private List<UsuariosModel> ListUsuariosModel { get; set; }
 
         private IUsuariosRepository UsuariosRepository;
@@ -63,8 +64,8 @@ namespace Domain.Models
             var ListUsuarios = UsuariosRepository.GetAll();
             if (ListUsuarios != null)
             {
-                var objListUsuariosEntity = MapListUsuariosModel(ListUsuarios);
-                return objListUsuariosEntity;
+                ListUsuariosModel = MapUsuarioModel(ListUsuarios);
+                return ListUsuariosModel;
             }
             else
                 return null;
@@ -96,91 +97,17 @@ namespace Domain.Models
         {
             var usuarioEntity = UsuariosRepository.IniciarSesion(usuario, contraseña);
             if (usuarioEntity != null)
-                return MapUsuariosModel(usuarioEntity);
+                return MapUsuariosEntity(usuarioEntity);
             else
                 return null;
         }
                                                                                              
-        public List<MostrarUsuariosDTOs> MostrarUsuarios()
+        public List<UsuariosModel> MostrarUsuarios()
         {
-            var ListMostrarUsuarios = UsuariosRepository.MostrarUsuariosDTO();
-            var ListMostrarUsuariosDTOs = new List<MostrarUsuariosDTOs>();
-            var MapListMostrarUsuariosDtos = MapListMostrarUsuariosDTOs(ListMostrarUsuarios);
-            foreach (var item in MapListMostrarUsuariosDtos)
-            {
-                ListMostrarUsuariosDTOs.Add(new MostrarUsuariosDTOs
-                {
-                    idUsuario = item.idUsuario,
-                    Login = item.Login,
-                    Icono = item.Icono,
-                });
-            }
-            return ListMostrarUsuariosDTOs;
+            var MostrarUsuariosDTO = UsuariosRepository.MostrarUsuariosDTO();
+            var MostrarUsuarioDTO = MapMostrarUsuarioDTO(MostrarUsuariosDTO);
+            return MostrarUsuarioDTO;
         }
 
-        private Usuarios MapUsuariosEntity(UsuariosModel objUsuariosModel)
-        {
-            var ObjUsuariosEntity = new Usuarios()
-            {
-                IdUsuario = objUsuariosModel.IdUsuario,
-                Nombre = objUsuariosModel.Nombre,
-                Login = objUsuariosModel.Login,
-                Password = objUsuariosModel.Password,
-                Icono = objUsuariosModel.Icono,
-                Correo = objUsuariosModel.Correo,
-                Rol = objUsuariosModel.Rol,
-                Estado = objUsuariosModel.Estado
-            };
-
-            return ObjUsuariosEntity;
-        }
-
-        private UsuariosModel MapUsuariosModel(Usuarios usuarios)
-        {
-            var UsuariosModel = new UsuariosModel()
-            {
-                IdUsuario = usuarios.IdUsuario,
-                Nombre = usuarios.Nombre,
-                Login = usuarios.Login,
-                Password = usuarios.Password,
-                Icono = usuarios.Icono,
-                Correo = usuarios.Correo,
-                Rol = usuarios.Rol,
-                Estado = usuarios.Estado
-            };
-
-            return UsuariosModel;
-        }
-
-        private MostrarUsuariosDTOs MapMostrarUsuariosDTOs(MostrarUsuariosDTO MostrarUsuariosDTO)
-        {
-            var MostrarUsuariosDTOs = new MostrarUsuariosDTOs()
-            {
-                idUsuario = Convert.ToInt32(MostrarUsuariosDTO.idUsuario),
-                Login = MostrarUsuariosDTO.Login,
-                Icono = MostrarUsuariosDTO.Icono,
-            };
-            return MostrarUsuariosDTOs;
-        }
-
-        private List<MostrarUsuariosDTOs> MapListMostrarUsuariosDTOs(IEnumerable<MostrarUsuariosDTO> ListMostrarUsuariosDTO)
-        {
-            var ListMostrarUsuariosDTOs = new List<MostrarUsuariosDTOs>();
-            foreach (var item in ListMostrarUsuariosDTO)
-            {
-                ListMostrarUsuariosDTOs.Add(MapMostrarUsuariosDTOs(item));
-            }
-            return ListMostrarUsuariosDTOs;
-        }
-
-        public List<UsuariosModel> MapListUsuariosModel(IEnumerable<Usuarios> ListUsuarios)
-        {
-            ListUsuariosModel = new List<UsuariosModel>();
-            foreach (var item in ListUsuarios)
-            {
-                ListUsuariosModel.Add(MapUsuariosModel(item));
-            }
-            return ListUsuariosModel;
-        }
     }
 }

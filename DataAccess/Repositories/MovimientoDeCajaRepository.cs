@@ -51,7 +51,7 @@ namespace DataAccess.Repositories
 
         public int MovimientoDeCajaPorIdUsuario(int idUsuario, string SerialPc)
         {
-            //0025_38BB_21B8_FCF3. -> SerialPc
+           
             parametros = new List<SqlParameter>();
             parametros.Add(new SqlParameter("@serial", SerialPc));
             parametros.Add(new SqlParameter("@idusuario", idUsuario));
@@ -61,7 +61,6 @@ namespace DataAccess.Repositories
 
         public string MovimientoDeCajaPorSerial(string SerialPc)
         {
-            //0025_38BB_21B8_FCF3. -> SerialPc
             parametro = new SqlParameter("@serial", SerialPc);
             var Table = ExecuteReaderWithParameter(vMovimientoDeCajaPorSerial);
             if (Table.Rows.Count > 0){

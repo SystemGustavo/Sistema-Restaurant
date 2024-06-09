@@ -12,7 +12,7 @@ namespace DataAccess.Entities
         public string Nombre_Empresa { get; set; }
         public byte[] Logo { get; set; }
         public string Impuesto { get; set; }
-        public double Porcentaje_impuesto { get; set; }
+        public double? Porcentaje_impuesto { get; set; }
         public string Moneda { get; set; }
         public string Trabajas_con_impuestos { get; set; }
         public string Modo_de_busqueda { get; set; }

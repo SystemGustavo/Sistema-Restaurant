@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Presentation.Presenter
 {
-    public class IniciarSesionPresenter
+    public class IniciarSesionPresenter:ControlsGeneric
     {
         private IIniciarSesionView IIniciarSesionView;
         private UsuariosModel UsuariosModel;
@@ -64,13 +64,6 @@ namespace Presentation.Presenter
         {
             IIniciarSesionView.PanelVisorUsuarios.Visible = true;
             CentrarPanel(IIniciarSesionView.FormIniciarSesion, IIniciarSesionView.PanelVisorContraseña);
-        }
-
-        private void CentrarPanel(Form form,Panel Panel)
-        {
-            int panelX = (form.ClientSize.Width - Panel.Width) / 2;
-            int panelY = (form.ClientSize.Height - Panel.Height) / 2;
-            Panel.Location = new Point(panelX, panelY);
         }
 
         private void txtContraseña_TextChanged(object sender, EventArgs e)
@@ -160,7 +153,7 @@ namespace Presentation.Presenter
                 PictureBox pbImagen = new PictureBox();
 
                 lblNombreUsuario.Text = item.Login.ToString();
-                lblNombreUsuario.Name = item.idUsuario.ToString();
+                lblNombreUsuario.Name = item.IdUsuario.ToString();
                 lblNombreUsuario.Size = new Size(175, 25);
                 lblNombreUsuario.Font = new Font("Microsoft Sans Serif", 13);
                 lblNombreUsuario.BackColor = Color.Transparent;

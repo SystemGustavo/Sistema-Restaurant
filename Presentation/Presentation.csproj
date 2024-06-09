@@ -12,6 +12,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,16 +35,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ControlesPersonalizados, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="ControlesPersonalizados">
       <HintPath>..\ControlesPersonalizados.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net48\FontAwesome.Sharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -59,6 +74,12 @@
     </Compile>
     <Compile Include="FrmAperturaDeCaja.Designer.cs">
       <DependentUpon>FrmAperturaDeCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCobros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCobros.Designer.cs">
+      <DependentUpon>FrmCobros.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEmpresa.cs">
       <SubType>Form</SubType>
@@ -78,6 +99,18 @@
     <Compile Include="FrmMenuPrincipal.Designer.cs">
       <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPuntoDeVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPuntoDeVenta.Designer.cs">
+      <DependentUpon>FrmPuntoDeVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +122,8 @@
     <Compile Include="Presenter\EmpresaPresenter.cs" />
     <Compile Include="Presenter\IniciarSesionPresenter.cs" />
     <Compile Include="Presenter\MesasPresenter.cs" />
+    <Compile Include="Presenter\ProductosPresenter.cs" />
+    <Compile Include="Presenter\PuntoDeVentaPresenter.cs" />
     <Compile Include="Presenter\UsuariosPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -98,24 +133,43 @@
       <DependentUpon>Resource1.resx</DependentUpon>
     </Compile>
     <Compile Include="Utils\ColorEditor.cs" />
+    <Compile Include="Utils\ControlsGeneric.cs" />
     <Compile Include="Utils\ItemConverter.cs" />
     <Compile Include="Utils\RoundedControl.cs" />
+    <Compile Include="ViewModels\DatosDetalleVentasVM.cs" />
+    <Compile Include="ViewModels\DetalleVentaViewModel.cs" />
     <Compile Include="Views\IAperturaDeCajaView.cs" />
+    <Compile Include="Views\IColoresView.cs" />
     <Compile Include="Views\IDibujarMesas.cs" />
     <Compile Include="Views\IDibujarSalones.cs" />
     <Compile Include="Views\IDiseñoPrincipal.cs" />
     <Compile Include="Views\IEmpresaView.cs" />
+    <Compile Include="Views\IGrupoDeProductosView.cs" />
     <Compile Include="Views\IIniciarSesionView.cs" />
+    <Compile Include="Views\IProductosView.cs" />
+    <Compile Include="Views\IPuntoDeVentaView.cs" />
     <Compile Include="Views\ITecladoNumerico.cs" />
     <Compile Include="Views\IUsuariosView.cs" />
     <EmbeddedResource Include="FrmAperturaDeCaja.resx">
       <DependentUpon>FrmAperturaDeCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCobros.resx">
+      <DependentUpon>FrmCobros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpresa.resx">
       <DependentUpon>FrmEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmIniciarSesion.resx">
       <DependentUpon>FrmIniciarSesion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuPrincipal.resx">
+      <DependentUpon>FrmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPuntoDeVenta.resx">
+      <DependentUpon>FrmPuntoDeVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmUsuarios.resx">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
@@ -379,5 +433,15 @@
   <ItemGroup>
     <None Include="Resources\userprofile.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\SkiaSharp.NativeAssets.macOS.2.88.6\build\net462\SkiaSharp.NativeAssets.macOS.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.6\build\net462\SkiaSharp.NativeAssets.macOS.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.macOS.2.88.6\build\net462\SkiaSharp.NativeAssets.macOS.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.macOS.2.88.6\build\net462\SkiaSharp.NativeAssets.macOS.targets'))" />
+    <Error Condition="!Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.6\build\net462\SkiaSharp.NativeAssets.Win32.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SkiaSharp.NativeAssets.Win32.2.88.6\build\net462\SkiaSharp.NativeAssets.Win32.targets'))" />
+  </Target>
+  <Import Project="..\packages\SkiaSharp.NativeAssets.Win32.2.88.6\build\net462\SkiaSharp.NativeAssets.Win32.targets" Condition="Exists('..\packages\SkiaSharp.NativeAssets.Win32.2.88.6\build\net462\SkiaSharp.NativeAssets.Win32.targets')" />
 </Project>

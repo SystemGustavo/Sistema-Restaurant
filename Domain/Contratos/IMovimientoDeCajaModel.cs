@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.BaseModels
 {
-    public interface IMovimientoDeCajaModel : IGeneric<IMovimientoDeCajaModel>
+    public interface IMovimientoDeCajaModel : IGenericModel<IMovimientoDeCajaModel>
     {
         int MovimientoDeCajaPorUsuario(int UsuarioInicioCaja, string SerialPc);
         string MovimientoDeCajaPorSerial(string SerialPc);

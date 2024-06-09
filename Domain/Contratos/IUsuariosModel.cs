@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.BaseModels
 {
-    public interface IUsuariosModel : IGeneric<UsuariosModel>
+    public interface IUsuariosModel : IGenericModel<UsuariosModel>
     {
         UsuariosModel IniciarSesion(string usuario,string contraseña);
         List<UsuariosModel> BuscarUsuario(string valor);

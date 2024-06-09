@@ -41,7 +41,41 @@ namespace Presentation.Presenter
             IAperturarCajaView.botonBorrarDerecha += btnBorrarDerecha_Click;
             IAperturarCajaView.botonOmitir += btnOmitir_Click;
             IAperturarCajaView.botonIniciar += btnIniciar_Click;
+            IAperturarCajaView.EventKeyPressMonto += txtMonto_KeyPress;
 
+        }
+
+        private void txtMonto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar == '.') || (e.KeyChar == ','))
+            {
+                e.KeyChar = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
+            }
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == '.' && (~IAperturarCajaView.TextBox.Text.IndexOf(".")) != 0)
+            {
+                e.Handled = true;
+            }
+            else if (e.KeyChar == '.')
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar == ',')
+            {
+                e.Handled = false;
+
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
 
         private void FrmAperturarCaja_Load(object sender, EventArgs e)

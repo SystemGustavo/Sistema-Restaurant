@@ -6,22 +6,19 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DataAccess.Repositories
 {
     public class UsuariosRepository : RepositoryMaster, IUsuariosRepository
     {
-
-        public string MostrarUsuarios;
-        public string InsertarUsuarios;
-        public string EditarUsuarios;
-        public string EliminarUsuarios;
-        public string ValidarUsuario;
-        public string BuscarUsuarios;
-        public string RetornaIdUsuario;
+        public readonly string MostrarUsuarios;
+        public readonly string InsertarUsuarios;
+        public readonly string EditarUsuarios;
+        public readonly string EliminarUsuarios;
+        public readonly string ValidarUsuario;
+        public readonly string BuscarUsuarios;
+        public readonly string RetornaIdUsuario;
 
         public UsuariosRepository()
         {

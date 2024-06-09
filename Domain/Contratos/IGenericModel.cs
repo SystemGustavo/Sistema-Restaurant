@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.BaseModels
 {
-    public interface IGeneric<Model> where Model : class
+    public interface IGenericModel<Model> where Model : class
     {
         void Add(Model model);//Agregar nuevo Model.
         void Edit(Model model);//Editar nuevo Model.

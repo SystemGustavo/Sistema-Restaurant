@@ -22,6 +22,7 @@ namespace Presentation.Helpers
         public string ErrorMessage
         {
             get { return _errorMessage; }
+            set { _errorMessage = value; }
         }
         public bool Result
         {

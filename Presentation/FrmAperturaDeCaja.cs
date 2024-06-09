@@ -15,7 +15,7 @@ namespace Presentation
 
         public event EventHandler botonOmitir;
         public event EventHandler formAperturaCaja;
-        public event KeyPressEventHandler TextBoxKeyPress;
+        public event KeyPressEventHandler EventKeyPressMonto;
         public event EventHandler boton1;
         public event EventHandler boton2;
         public event EventHandler boton3;
@@ -39,35 +39,7 @@ namespace Presentation
         {
             txtMonto.KeyPress += (s, e) =>
             {
-                if ((e.KeyChar == '.') || (e.KeyChar == ','))
-                {
-                    e.KeyChar = System.Threading.Thread.CurrentThread.CurrentCulture.NumberFormat.NumberDecimalSeparator[0];
-                }
-                if (char.IsDigit(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (char.IsControl(e.KeyChar))
-                {
-                    e.Handled = false;
-                }
-                else if (e.KeyChar == '.' && (~txtMonto.Text.IndexOf(".")) != 0)
-                {
-                    e.Handled = true;
-                }
-                else if (e.KeyChar == '.')
-                {
-                    e.Handled = false;
-                }
-                else if (e.KeyChar == ',')
-                {
-                    e.Handled = false;
-
-                }
-                else
-                {
-                    e.Handled = true;
-                }
+                EventKeyPressMonto?.Invoke(s, e);
             };
 
             btnIniciar.Click += delegate

@@ -41,9 +41,15 @@ namespace Presentation
         public event EventHandler EventCancelar;
         public event EventHandler EventClickImagen;
         public event EventHandler EventOnTextChanged;
+        public event KeyPressEventHandler EventKeyPressContraseña;
 
         private void AssociateAndRaiseViewEvents()
         {
+            txtContraseña.KeyPress += (s,e) => 
+            {
+                EventKeyPressContraseña?.Invoke(s, e);
+            };
+
             txtBuscarUsuario.onTextChanged += delegate
             {
                 EventOnTextChanged?.Invoke(this, EventArgs.Empty);
@@ -101,20 +107,9 @@ namespace Presentation
             dgvModulos.DataSource = modulosList;
         }
 
-        private void txtContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            if (char.IsDigit(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else if (char.IsControl(e.KeyChar))
-            {
-                e.Handled = false;
-            }
-            else
-            {
-                e.Handled = true;
-            }
+
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Common
         Remove = 3,
         View = 4,
         Special = 5,
-        Cancel= 6
+        Cancel= 6,
+        Restore = 7
     }
 }

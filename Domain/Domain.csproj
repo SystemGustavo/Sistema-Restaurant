@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,6 +39,10 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,17 +51,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contratos\IColoresModel.cs" />
+    <Compile Include="Contratos\IGrupoDeProductosModel.cs" />
+    <Compile Include="Contratos\IPuntoDeVentaModel.cs" />
+    <Compile Include="Mapeador\MapColoresModel.cs" />
     <Compile Include="Mapeador\MapEmpresaModel.cs" />
+    <Compile Include="Mapeador\MapGrupoProductosModel.cs" />
+    <Compile Include="Mapeador\MapProductosModel.cs" />
+    <Compile Include="Mapeador\MapPuntoDeVentaModel.cs" />
+    <Compile Include="Mapeador\MapUsuariosModel.cs" />
+    <Compile Include="Models\ColoresModel.cs" />
+    <Compile Include="Models\DetalleVentaModel.cs" />
+    <Compile Include="Models\GrupoProductosModel.cs" />
     <Compile Include="Models\EmpresaModel.cs" />
+    <Compile Include="Models\ProductosModel.cs" />
+    <Compile Include="Models\PuntoDeVentaModel.cs" />
     <Compile Include="ObjectValues\Impuesto.cs" />
     <Compile Include="ObjectValues\Paises.cs" />
-    <Compile Include="Repositories\IGenericModel.cs" />
-    <Compile Include="Repositories\IEmpresaModel.cs" />
-    <Compile Include="Repositories\IMovimientoDeCajaModel.cs" />
-    <Compile Include="Repositories\IUsuariosModel.cs" />
+    <Compile Include="Contratos\IGenericModel.cs" />
+    <Compile Include="Contratos\IEmpresaModel.cs" />
+    <Compile Include="Contratos\IMovimientoDeCajaModel.cs" />
+    <Compile Include="Contratos\IProductosModel.cs" />
+    <Compile Include="Contratos\IUsuariosModel.cs" />
     <Compile Include="DTOs\MostrarMesasPorSalonDTOs.cs" />
     <Compile Include="DTOs\MostrarPermisosDTOs.cs" />
-    <Compile Include="DTOs\MostrarUsuariosDTOs.cs" />
     <Compile Include="Models\CajasModel.cs" />
     <Compile Include="Models\InicioDeSesionModel.cs" />
     <Compile Include="Models\MesasModel.cs" />

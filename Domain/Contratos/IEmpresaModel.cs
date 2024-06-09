@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Domain.Repository
 {
-    public interface IEmpresaModel : IGeneric<EmpresaModel>
+    public interface IEmpresaModel : IGenericModel<EmpresaModel>
     {
         bool EditarRespaldo();
         List<Paises> ListPaises();

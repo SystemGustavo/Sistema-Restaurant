@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,7 +34,20 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,45 +57,70 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Contracts\ICajaRepository.cs" />
+    <Compile Include="Contracts\IColoresRepository.cs" />
+    <Compile Include="Contracts\IDetalleVentaRepository.cs" />
     <Compile Include="Contracts\IEmpresaRepository.cs" />
     <Compile Include="Contracts\IGenericRepository.cs" />
+    <Compile Include="Contracts\IGrupoDeProductosRepository.cs" />
     <Compile Include="Contracts\IIniciosDeSesionRepository.cs" />
     <Compile Include="Contracts\IMesasRepository.cs" />
     <Compile Include="Contracts\IModulosRepository.cs" />
     <Compile Include="Contracts\IMovimientoDeCajaRepository.cs" />
     <Compile Include="Contracts\IPermisosRepository.cs" />
+    <Compile Include="Contracts\IProductosRepository.cs" />
+    <Compile Include="Contracts\IPuntoDeVentaRepository.cs" />
     <Compile Include="Contracts\ISalonesRepository.cs" />
     <Compile Include="Contracts\IUsuariosRepository.cs" />
+    <Compile Include="Contracts\IVentaRepository.cs" />
+    <Compile Include="DTO\MostrarColorXProductoDTO.cs" />
+    <Compile Include="DTO\MostrarDetalleVentaDTO.cs" />
     <Compile Include="DTO\MostrarMesasPorSalonDTO.cs" />
     <Compile Include="DTO\MostrarPermisosDTO.cs" />
+    <Compile Include="DTO\MostrarProductosPorGrupoDTO.cs" />
     <Compile Include="DTO\MostrarUsuariosDTO.cs" />
+    <Compile Include="DTO\PaginarGruposDTO.cs" />
+    <Compile Include="DTO\PaginarProductosPorGrupoDTO.cs" />
     <Compile Include="Entities\Caja.cs" />
+    <Compile Include="Entities\Colores.cs" />
+    <Compile Include="Entities\DetalleVentas.cs" />
     <Compile Include="Entities\Empresa.cs" />
+    <Compile Include="Entities\GrupoProductos.cs" />
     <Compile Include="Entities\IniciosDeSesion.cs" />
     <Compile Include="Entities\Mesas.cs" />
     <Compile Include="Entities\Modulos.cs" />
     <Compile Include="Entities\MovimientoDeCaja.cs" />
     <Compile Include="Entities\Permisos.cs" />
+    <Compile Include="Entities\Productos.cs" />
     <Compile Include="Entities\Salones.cs" />
     <Compile Include="Entities\Usuarios.cs" />
+    <Compile Include="Entities\Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CajaRepository.cs" />
+    <Compile Include="Repositories\ColoresRepository.cs" />
+    <Compile Include="Repositories\DetalleVentaRepository.cs" />
     <Compile Include="Repositories\EmpresaRepository.cs" />
+    <Compile Include="Repositories\GrupoDeProductosRepository.cs" />
     <Compile Include="Repositories\IniciosDeSesionRepository.cs" />
     <Compile Include="Repositories\MesasRepository.cs" />
     <Compile Include="Repositories\ModulosRepository.cs" />
     <Compile Include="Repositories\MovimientoDeCajaRepository.cs" />
     <Compile Include="Repositories\PermisosRepository.cs" />
+    <Compile Include="Repositories\ProductosRepository.cs" />
+    <Compile Include="Repositories\PuntoDeVentaRepository.cs" />
     <Compile Include="Repositories\Repository.cs" />
     <Compile Include="Repositories\RepositoryMaster.cs" />
     <Compile Include="Repositories\SalonesRepository.cs" />
     <Compile Include="Repositories\UsuariosRepository.cs" />
+    <Compile Include="Repositories\VentaRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{7e0518f1-f48c-4b30-856c-99c7ce1ad682}</Project>
       <Name>Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

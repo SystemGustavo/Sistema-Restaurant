@@ -289,7 +289,7 @@ namespace Presentation
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Variable Display", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(103)))), ((int)(((byte)(192)))));
-            this.label7.Location = new System.Drawing.Point(401, 394);
+            this.label7.Location = new System.Drawing.Point(401, 413);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(123, 38);
@@ -320,7 +320,7 @@ namespace Presentation
             this.pbImagen.GradientAngle = 50F;
             this.pbImagen.GradientColor = false;
             this.pbImagen.Image = global::Presentation.Resource1.userProfile;
-            this.pbImagen.Location = new System.Drawing.Point(168, 69);
+            this.pbImagen.Location = new System.Drawing.Point(168, 88);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(167, 167);
             this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -337,7 +337,7 @@ namespace Presentation
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(289, 608);
+            this.btnCancelar.Location = new System.Drawing.Point(289, 627);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(142, 67);
@@ -349,7 +349,7 @@ namespace Presentation
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Variable Text", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(160, 7);
+            this.label1.Location = new System.Drawing.Point(160, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(159, 46);
             this.label1.TabIndex = 14;
@@ -365,7 +365,7 @@ namespace Presentation
             this.btnAccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccion.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAccion.ForeColor = System.Drawing.Color.White;
-            this.btnAccion.Location = new System.Drawing.Point(118, 609);
+            this.btnAccion.Location = new System.Drawing.Point(118, 628);
             this.btnAccion.Margin = new System.Windows.Forms.Padding(4);
             this.btnAccion.Name = "btnAccion";
             this.btnAccion.Size = new System.Drawing.Size(142, 67);
@@ -391,7 +391,7 @@ namespace Presentation
             "Mozo",
             "Cajero",
             "Administrador"});
-            this.cbxRol.Location = new System.Drawing.Point(241, 537);
+            this.cbxRol.Location = new System.Drawing.Point(241, 556);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Padding = new System.Windows.Forms.Padding(3);
             this.cbxRol.SelectedIndex = -1;
@@ -483,7 +483,7 @@ namespace Presentation
             this.txtCorreo.BorderSize = 5;
             this.txtCorreo.Font = new System.Drawing.Font("Verdana", 9.5F);
             this.txtCorreo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(132)))));
-            this.txtCorreo.Location = new System.Drawing.Point(241, 461);
+            this.txtCorreo.Location = new System.Drawing.Point(241, 480);
             this.txtCorreo.MultiLine = true;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -505,7 +505,7 @@ namespace Presentation
             this.txtContraseña.BorderSize = 5;
             this.txtContraseña.Font = new System.Drawing.Font("Verdana", 9.5F);
             this.txtContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(132)))));
-            this.txtContraseña.Location = new System.Drawing.Point(242, 388);
+            this.txtContraseña.Location = new System.Drawing.Point(242, 407);
             this.txtContraseña.MaxLength = 6;
             this.txtContraseña.MultiLine = true;
             this.txtContraseña.Name = "txtContraseña";
@@ -517,7 +517,6 @@ namespace Presentation
             this.txtContraseña.Size = new System.Drawing.Size(152, 44);
             this.txtContraseña.Style = ControlesPersonalizados.Controles.Diseño.TextBoxStyle.FlaringLine;
             this.txtContraseña.TabIndex = 8;
-            this.txtContraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtContraseña_KeyPress);
             // 
             // txtUsuario
             // 
@@ -529,7 +528,7 @@ namespace Presentation
             this.txtUsuario.BorderSize = 5;
             this.txtUsuario.Font = new System.Drawing.Font("Verdana", 9.5F);
             this.txtUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(132)))));
-            this.txtUsuario.Location = new System.Drawing.Point(241, 322);
+            this.txtUsuario.Location = new System.Drawing.Point(241, 341);
             this.txtUsuario.MultiLine = true;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -551,7 +550,7 @@ namespace Presentation
             this.txtNombre.BorderSize = 5;
             this.txtNombre.Font = new System.Drawing.Font("Verdana", 9.5F);
             this.txtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(129)))), ((int)(((byte)(132)))));
-            this.txtNombre.Location = new System.Drawing.Point(241, 258);
+            this.txtNombre.Location = new System.Drawing.Point(241, 277);
             this.txtNombre.MultiLine = true;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
@@ -567,7 +566,7 @@ namespace Presentation
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(145, 558);
+            this.label6.Location = new System.Drawing.Point(145, 577);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(43, 24);
@@ -578,7 +577,7 @@ namespace Presentation
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(28, 480);
+            this.label5.Location = new System.Drawing.Point(28, 499);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(171, 24);
@@ -589,7 +588,7 @@ namespace Presentation
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(99, 333);
+            this.label3.Location = new System.Drawing.Point(99, 352);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 24);
@@ -600,7 +599,7 @@ namespace Presentation
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(73, 403);
+            this.label4.Location = new System.Drawing.Point(73, 422);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(111, 24);
@@ -611,7 +610,7 @@ namespace Presentation
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(96, 267);
+            this.label2.Location = new System.Drawing.Point(96, 286);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 24);
@@ -628,6 +627,7 @@ namespace Presentation
             this.Name = "FrmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmUsuarios";
+            this.Load += new System.EventHandler(this.FrmUsuarios_Load);
             this.tabControl1.ResumeLayout(false);
             this.UsuariosList.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();

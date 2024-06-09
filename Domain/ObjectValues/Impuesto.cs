@@ -11,6 +11,7 @@ namespace Domain.ObjectValues
         public List<string> Impuestos()
         {
             List<string> listImpuesto = new List<string>();
+            listImpuesto.Add("<< Seleccione Impuesto >>");
             listImpuesto.Add("Igv");
             listImpuesto.Add("Iva");
             return listImpuesto;
@@ -19,6 +20,7 @@ namespace Domain.ObjectValues
         public List<int> ValoresImpuestos()
         {
             List<int> listValoresImpuesto = new List<int>();
+            listValoresImpuesto.Add(0);
             listValoresImpuesto.Add(18);
             listValoresImpuesto.Add(21);
             listValoresImpuesto.Add(5);

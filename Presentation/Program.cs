@@ -30,17 +30,27 @@ namespace Presentation
             //new UsuariosPresenter(view, new UsuariosModel(),
             //                            new ModulosModel(),
             //                            new PermisosModel(),
-            //                            new IniciosDeSesionModel(),
+            //                            new InicioDeSesionModel(),
             //                            new CajasModel());
 
             //IAperturaDeCajaView view = new FrmAperturaDeCaja();
-            //new AperturarCajaPresenter(view, new MovimientoDeCajaModel(),new CajasModel());
+            //new AperturarCajaPresenter(view, new MovimientoDeCajaModel(), new CajasModel());
 
 
-            IEmpresaView view = new FrmEmpresa();
-            new EmpresaPresenter(view, new EmpresaModel());
+            //IEmpresaView view = new FrmEmpresa();
+            //new EmpresaPresenter(view, new EmpresaModel());
+
+            //IProductosView view = new FrmProductos();
+            //new ProductosPresenter(view, new ProductosModel(),
+            //                             new GrupoProductosModel(),
+            //                             new ColoresModel());
+
+            IPuntoDeVentaView view = new FrmPuntoDeVenta();
+            new PuntoDeVentaPresenter(view, new PuntoDeVentaModel());
+
 
             Application.Run((Form)(view));
+           
         }
     }
 }
